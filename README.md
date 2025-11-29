@@ -63,7 +63,7 @@ docker-compose up --build -d
 # Застосування міграцій (якщо змінилася модель)
 docker-compose exec web python manage.py migrate product
 
-# Запуск юніт-тестів для додатку 'service_app'
+# Запуск юніт-тестів для додатку
 docker-compose exec web python manage.py test product
 ```
 
