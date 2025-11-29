@@ -82,6 +82,5 @@ docker-compose exec web python manage.py test product
 
 | Призначення | Метод | URL-префікс |
 | :--- | :--- | :--- |
-| **Створення Credit** | `POST` | `/api/create_credit/` |
-| **Деталі/Оновлення/Видалення** | `GET`/`PUT`/`PATCH`/`DELETE` | `/api/credits/{id}/` |
-| **Обробка платежу** | `POST` | `/api/process_payment/` |
+| **Створення Credit** | `POST` | `/api/credits/` |
+| **Обробка платежу** | `POST` | `/api/change_payment/` |
