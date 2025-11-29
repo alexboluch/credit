@@ -1,0 +1,12 @@
+*.pyc
+__pycache__/
+*.sqlite3
+venv/
+.env
+
+.dockerignore
+!Dockerfile
+!docker-compose.yml
+
+.vscode/
+.DS_Store
