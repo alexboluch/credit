@@ -84,3 +84,55 @@ docker-compose exec web python manage.py test product
 | :--- | :--- | :--- |
 | **Створення Credit** | `POST` | `/api/credits/` |
 | **Обробка платежу** | `POST` | `/api/change_payment/` |
+
+-----
+
+## Створення Кредиту (Credit Creation)
+
+Цей JSON-об'єкт використовується для **`POST`**-запиту на ендпоінт **створення** нового об'єкта `Credit`.
+
+**Ендпоінт:** `/api/credits/`
+
+### Payload для /api/credits/
+
+```json
+{
+    "amount": 1000,
+    "loan_start_date": "10-01-2024",
+    "number_of_payments": 4,
+    "periodicity": "3w",
+    "interest_rate": 0.1
+}
+```
+
+| Поле | Тип | Опис |
+| :--- | :--- | :--- |
+| `amount` | Integer | Сума кредиту. |
+| `loan_start_date` | String | Дата початку кредиту у форматі **РРРР-ММ-ДД**. |
+| `number_of_payments` | Integer | Загальна кількість платежів. |
+| `periodicity` | String | Періодичність платежів (наприклад, '3w' = 3 тижні, '1m' = 1 місяць). |
+| `interest_rate` | Decimal | Річна відсоткова ставка (наприклад, 0.10 = 10%). |
+
+-----
+
+## Обробка Платежу (Change Payment)
+
+Цей JSON-об'єкт використовується для **`POST`**-запиту на ендпоінт **обробки/зміни платежу**, де всі параметри передаються у тілі запиту.
+
+**Ендпоінт:** `/api/change_payment/`
+
+### Payload для /api/change\_payment/
+
+```json
+{
+    "id": 1,
+    "number": 2,
+    "sum": 100
+}
+```
+
+| Поле | Тип | Опис |
+| :--- | :--- | :--- |
+| `id` | Integer | **ID** кредиту, до якого застосовується платіж. |
+| `number` | Integer | Номер платежу. |
+| `sum` | Decimal/Integer | Сума на яку треба зменьшити платіж. |
